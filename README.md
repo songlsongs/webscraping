@@ -1,5 +1,5 @@
 # webscraping
-purpose: website scraping for up to 3 levels
+purpose: find all links of a website for up to 3 levels
 
 How to run: Go to the project directory and enter command
   >npm run start
