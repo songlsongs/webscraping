@@ -10,7 +10,7 @@ output example:
 [Seed]
 https://www.51.ca
 
-[Level 1] <n> is the index of [level 1] links
+[Level 1]  < n > is the index of [level 1] links
   
 <0>https://www.51.ca/weather/#cityCAXX0504
 
@@ -26,7 +26,7 @@ https://www.51.ca
 
 <6>https://www.51.ca/weather/#cityCAXX0054
 
-[level 2] <<n>m, m is the index of [level 2] links
+[level 2]  << n > m, m is the index of [level 2] links
   
 <<11>16 https://play.google.com/store/apps/details?id=gbis.gbandroid
 
@@ -52,7 +52,7 @@ https://www.51.ca
 
 <<11>27 http://twitter.com/gasbuddy
 
-[level 3] <<<n>>m>k, k is the index of [level 3] links
+[level 3]  <<< n >> m > k, k is the index of [level 3] links
   
 <<<4>>1>36 http://www.torontoGasprices.com
 
