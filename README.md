@@ -54,31 +54,35 @@ https://www.51.ca
 
 [level 3]  <<< n >> m > k, k is the index of [level 3] links
   
-<<<4>>1>36 http://www.torontoGasprices.com
+<<<6>>3>26 http://www.facebook.com/gasbuddy
 
-<<<4>>1>37 http://www.torontoGasprices.com
+<<<6>>3>27 http://twitter.com/gasbuddy
 
-<<<4>>1>38 http://www.torontoGasprices.com
+<<<6>>3>28 https://www.linkedin.com/company/gasbuddy
 
-<<<4>>1>39 http://www.torontoGasprices.com
+<<<6>>3>29 http://instagram.com/gasbuddy
 
-<<<4>>1>40 http://www.torontoGasprices.com
+<<<6>>3>30 http://media.gasbuddy.com/MediaContacts
 
-<<<4>>1>41 http://www.torontoGasprices.com
+<<<6>>3>31 http://media.gasbuddy.com/
 
-<<<4>>1>42 http://www.torontoGasprices.com
+<<<6>>3>32 http://help.gasbuddy.com/hc/en-us
 
-<<<4>>1>43 http://www.torontoGasprices.com
+<<<6>>3>33 http://business.gasbuddy.com/for_business/advertise-with-gasbuddy/
 
-<<<4>>1>44 http://www.torontoGasprices.com
+<<<6>>3>34 http://www.facebook.com/gasbuddy
 
-<<<4>>1>45 http://www.torontoGasprices.com
+<<<6>>3>35 http://www.facebook.com/gasbuddy
 
-<<<4>>1>46 http://www.torontoGasprices.com
+<<<6>>3>36 http://twitter.com/gasbuddy
 
-<<<4>>1>47 http://www.torontoGasprices.com
+<<<6>>3>37 http://twitter.com/gasbuddy
 
-<<<4>>1>48 http://www.torontoGasprices.com
+<<<6>>3>38 https://www.linkedin.com/company/gasbuddy
+
+<<<6>>3>39 https://www.linkedin.com/company/gasbuddy
+
+<<<6>>3>40 http://instagram.com/gasbuddy
 
 To change the seed url, go to bottom of index.ts 
 
