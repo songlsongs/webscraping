@@ -2,50 +2,51 @@
 import cheerio = require("cheerio");
 import requestPromise = require("request-promise");
 
-/**
- * This is an asynchronous function that uses async-await with request-promise
- * to fetch a result from a web server.
- * @returns {Promise<string>}
- */
-async function getScrapingReport(url: string): Promise<string> {
-    /*
-    We're expecting to get a simple JSON string from the server.
-    It looks something like this: { "origin": "24.177.166.2" }
-    To keep this example simple, if we get an error, we'll just
-    use it as the "origin" property.
-    */
-    let response: any = {};
+async function getScrapingReport(link: string): Promise<string[]> {
 
-    // Here we go!
-    await requestPromise.get(url)
+    const links: string[] = [];
+
+    await requestPromise.get(link)
         .then((html) => {
             const $ = cheerio.load(html);
-            const links: string[] = [];
 
             $("a").each((idx, el) => {
+                const $el = $(el);
+                const href = $el.attr("href");
 
-            const $el = $(el);
-            const href = $el.attr("href");
+                if (href !== undefined && href.includes("http")) {
+                    links.push(href);
+                }});
+            })
+        .catch ((err) => { links[0] = err.toString(); });
 
-            if (href !== undefined && href.includes("http")) {
-                // console.log(href);
-                links.push(href);
-            }});
-            response = {origin: links}; })
-        .catch ((err) => { response = { origin: err.toString() }; });
-    // Now that we have our response, pull out the origin and return it
-    // to the caller.
-    return response.origin;
+    return links;
 }
 
-async function siteScraper(): Promise<void> {
-    // Wait around for the getMyIp() function to return its value.
-    const url = "https://www.51.ca";
-    const result = await getScrapingReport(url);
+async function siteScraper(link: string): Promise<void> {
 
     // tslint:disable-next-line:no-console
-    console.log(result);
+    console.log(link);
+
+    const links: string[] = await getScrapingReport(link);
+
+    links.forEach(async (link1: string, idx1: number, array1: string[]) => {
+        // tslint:disable-next-line:no-console
+        console.log("<" + idx1 + ">" + link1);
+        const links2 = await getScrapingReport(link1);
+        links2.forEach(async (link2: string, idx2: number, array2: string[]) => {
+            // tslint:disable-next-line:no-console
+            console.log("<<" + idx1 + ">" + idx2 + " " + link2);
+            const links3 = await getScrapingReport(link2);
+            links3.forEach((link3: string, idx3: number, array3: string[]) => {
+                // tslint:disable-next-line:no-console
+                console.log("<<<" + idx1 + ">>" + idx2 + ">" + idx3 + " " + link2);
+            });
+
+        });
+
+    });
 }
 
-
-siteScraper();  // For this demonstration, we're ignoring the returned Promise.
+const url = "https://www.51.ca";
+siteScraper(url);  // For this demonstration, we're ignoring the returned Promise.

@@ -10,12 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const cheerio = require("cheerio");
 const requestPromise = require("request-promise");
-/**
- * This is an asynchronous function that uses async-await with request-promise
- * to fetch a result from a web server.
- * @returns {Promise<string>}
- */
-function getScrapingReport(url) {
+function getScrapingReport(link) {
     return __awaiter(this, void 0, void 0, function* () {
         /*
         We're expecting to get a simple JSON string from the server.
@@ -23,12 +18,11 @@ function getScrapingReport(url) {
         To keep this example simple, if we get an error, we'll just
         use it as the "origin" property.
         */
-        let response = {};
+        const links = [];
         // Here we go!
-        yield requestPromise.get(url)
+        yield requestPromise.get(link)
             .then((html) => {
             const $ = cheerio.load(html);
-            const links = [];
             $("a").each((idx, el) => {
                 const $el = $(el);
                 const href = $el.attr("href");
@@ -37,23 +31,34 @@ function getScrapingReport(url) {
                     links.push(href);
                 }
             });
-            response = { origin: links };
         })
-            .catch((err) => { response = { origin: err.toString() }; });
+            .catch((err) => { links[0] = err.toString(); });
         // Now that we have our response, pull out the origin and return it
         // to the caller.
-        return response.origin;
+        return links;
     });
 }
-function siteScarper() {
+function siteScraper(link) {
     return __awaiter(this, void 0, void 0, function* () {
-        // Wait around for the getMyIp() function to return its value.
-        const url = "https://www.51.ca";
-        const result = yield getScrapingReport(url);
         // tslint:disable-next-line:no-console
-        console.log(result);
+        console.log(link);
+        const links = yield getScrapingReport(link);
+        links.forEach((link1, idx1, array1) => __awaiter(this, void 0, void 0, function* () {
+            // tslint:disable-next-line:no-console
+            console.log("<" + idx1 + ">" + link1);
+            const links2 = yield getScrapingReport(link1);
+            links2.forEach((link2, idx2, array2) => __awaiter(this, void 0, void 0, function* () {
+                // tslint:disable-next-line:no-console
+                console.log("<<" + idx1 + ">" + idx2 + " " + link2);
+                const links3 = yield getScrapingReport(link2);
+                links3.forEach((link3, idx3, array3) => {
+                    // tslint:disable-next-line:no-console
+                    console.log("<<<" + idx1 + ">>" + idx2 + ">" + idx3 + " " + link2);
+                });
+            }));
+        }));
     });
 }
-// We gotta start somewhere...
-siteScarper(); // For this demonstration, we're ignoring the returned Promise.
+const url = "https://www.51.ca";
+siteScraper(url); // For this demonstration, we're ignoring the returned Promise.
 //# sourceMappingURL=index.js.map
