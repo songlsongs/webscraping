@@ -12,14 +12,7 @@ const cheerio = require("cheerio");
 const requestPromise = require("request-promise");
 function getScrapingReport(link) {
     return __awaiter(this, void 0, void 0, function* () {
-        /*
-        We're expecting to get a simple JSON string from the server.
-        It looks something like this: { "origin": "24.177.166.2" }
-        To keep this example simple, if we get an error, we'll just
-        use it as the "origin" property.
-        */
         const links = [];
-        // Here we go!
         yield requestPromise.get(link)
             .then((html) => {
             const $ = cheerio.load(html);
@@ -27,14 +20,11 @@ function getScrapingReport(link) {
                 const $el = $(el);
                 const href = $el.attr("href");
                 if (href !== undefined && href.includes("http")) {
-                    // console.log(href);
                     links.push(href);
                 }
             });
         })
             .catch((err) => { links[0] = err.toString(); });
-        // Now that we have our response, pull out the origin and return it
-        // to the caller.
         return links;
     });
 }
