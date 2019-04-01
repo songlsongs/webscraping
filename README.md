@@ -84,8 +84,6 @@ To change the seed url, go to bottom of index.ts
 
 const url = "https://www.51.ca"
 
-siteScraper(url);  // For this demonstration, we're ignoring the returned Promise.
-
-change const url = "your seed url";
+change to const url = "your seed url";
 
 
