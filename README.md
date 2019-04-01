@@ -80,12 +80,12 @@ https://www.51.ca
 
 <<<4>>1>48 http://www.torontoGasprices.com
 
-To change the seed url, go to index.ts 
+To change the seed url, go to bottom of index.ts 
 
 const url = "https://www.51.ca"
 
 siteScraper(url);  // For this demonstration, we're ignoring the returned Promise.
 
-change bottom 2nd line const url = "your seed url";
+change const url = "your seed url";
 
 
