@@ -40,7 +40,7 @@ async function siteScraper(link: string): Promise<void> {
             const links3 = await getScrapingReport(link2);
             links3.forEach((link3: string, idx3: number, array3: string[]) => {
                 // tslint:disable-next-line:no-console
-                console.log("<<<" + idx1 + ">>" + idx2 + ">" + idx3 + " " + link2);
+                console.log("<<<" + idx1 + ">>" + idx2 + ">" + idx3 + " " + link3);
             });
 
         });

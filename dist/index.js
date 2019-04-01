@@ -43,7 +43,7 @@ function siteScraper(link) {
                 const links3 = yield getScrapingReport(link2);
                 links3.forEach((link3, idx3, array3) => {
                     // tslint:disable-next-line:no-console
-                    console.log("<<<" + idx1 + ">>" + idx2 + ">" + idx3 + " " + link2);
+                    console.log("<<<" + idx1 + ">>" + idx2 + ">" + idx3 + " " + link3);
                 });
             }));
         }));
