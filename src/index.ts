@@ -33,15 +33,15 @@ async function siteScraper(link: string): Promise<void> {
 
     links.forEach(async (link1: string, idx1: number, array1: string[]) => {
         // tslint:disable-next-line:no-console
-        console.log("<" + idx1 + ">" + link1);
+        console.log("[" + idx1 + "] " + link1);
         const links2 = await getScrapingReport(link1);
         links2.forEach(async (link2: string, idx2: number, array2: string[]) => {
             // tslint:disable-next-line:no-console
-            console.log("<<" + idx1 + ">" + idx2 + " " + link2);
+            console.log("[" + idx1 + "][" + idx2 + "] " + link2);
             const links3 = await getScrapingReport(link2);
             links3.forEach((link3: string, idx3: number, array3: string[]) => {
                 // tslint:disable-next-line:no-console
-                console.log("<<<" + idx1 + ">>" + idx2 + ">" + idx3 + " " + link3);
+                console.log("[" + idx1 + "][" + idx2 + "][" + idx3 + "] " + link3);
             });
 
         });

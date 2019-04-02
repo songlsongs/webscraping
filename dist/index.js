@@ -35,15 +35,15 @@ function siteScraper(link) {
         const links = yield getScrapingReport(link);
         links.forEach((link1, idx1, array1) => __awaiter(this, void 0, void 0, function* () {
             // tslint:disable-next-line:no-console
-            console.log("<" + idx1 + ">" + link1);
+            console.log("[" + idx1 + "] " + link1);
             const links2 = yield getScrapingReport(link1);
             links2.forEach((link2, idx2, array2) => __awaiter(this, void 0, void 0, function* () {
                 // tslint:disable-next-line:no-console
-                console.log("<<" + idx1 + ">" + idx2 + " " + link2);
+                console.log("[" + idx1 + "][" + idx2 + "] " + link2);
                 const links3 = yield getScrapingReport(link2);
                 links3.forEach((link3, idx3, array3) => {
                     // tslint:disable-next-line:no-console
-                    console.log("<<<" + idx1 + ">>" + idx2 + ">" + idx3 + " " + link3);
+                    console.log("[" + idx1 + "][" + idx2 + "][" + idx3 + "] " + link3);
                 });
             }));
         }));
