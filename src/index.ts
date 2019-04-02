@@ -16,8 +16,9 @@ async function getScrapingReport(link: string): Promise<string[]> {
 
                 if (href !== undefined && href.includes("http")) {
                     links.push(href);
-                }});
-            })
+                }
+            });
+        })
         .catch ((err) => { links[0] = err.toString(); });
 
     return links;
