@@ -104,7 +104,7 @@ https://www.51.ca
 
 [6][3][40] http://instagram.com/gasbuddy
 
-This output can be sorted and persist into a file.
+This output can be sorted and persisted into a .txt file.
 
 To change the seed url, go to bottom of index.ts 
 
